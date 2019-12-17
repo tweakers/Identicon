@@ -83,7 +83,7 @@ class SvgGenerator extends BaseGenerator implements GeneratorInterface
     protected function _toUnderstandableColor($color)
     {
         if (is_array($color)) {
-            return sprintf('#%X%X%X', $color[0], $color[1], $color[2]);
+            return sprintf('#%02X%02X%02X', $color[0], $color[1], $color[2]);
         }
 
         return $color;

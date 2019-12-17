@@ -82,4 +82,14 @@ class IdenticonTest extends \PHPUnit_Framework_TestCase
             ['benjaminAtYzalisDotCom', '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="65" height="65" viewBox="0 0 5 5"><rect width="5" height="5" fill="#FFF" stroke-width="0"/><path fill="#60B030" stroke-width="0" d="M1,0h1v1h-1v-1M3,0h1v1h-1v-1M0,1h1v1h-1v-1M2,1h1v1h-1v-1M4,1h1v1h-1v-1M0,2h1v1h-1v-1M1,2h1v1h-1v-1M3,2h1v1h-1v-1M4,2h1v1h-1v-1M1,3h1v1h-1v-1M2,3h1v1h-1v-1M3,3h1v1h-1v-1M0,4h1v1h-1v-1M2,4h1v1h-1v-1M4,4h1v1h-1v-1M0,5h1v1h-1v-1M4,5h1v1h-1v-1"/></svg>'],
         ];
     }
+
+    public function testSvgBackgroundColor()
+    {
+	    $this->identicon->setGenerator(new SvgGenerator());
+
+		$string = 'Benjamin';
+		$imageData = '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="65" height="65" viewBox="0 0 5 5"><rect width="5" height="5" fill="#020304" stroke-width="0"/><path fill="#010203" stroke-width="0" d="M0,0h1v1h-1v-1M2,0h1v1h-1v-1M4,0h1v1h-1v-1M1,1h1v1h-1v-1M2,1h1v1h-1v-1M3,1h1v1h-1v-1M0,2h1v1h-1v-1M1,2h1v1h-1v-1M3,2h1v1h-1v-1M4,2h1v1h-1v-1M0,3h1v1h-1v-1M1,3h1v1h-1v-1M2,3h1v1h-1v-1M3,3h1v1h-1v-1M4,3h1v1h-1v-1M0,4h1v1h-1v-1M1,4h1v1h-1v-1M3,4h1v1h-1v-1M4,4h1v1h-1v-1M0,5h1v1h-1v-1M4,5h1v1h-1v-1"/></svg>';
+
+        $this->assertEquals($imageData, $this->identicon->getImageData($string, 64, [1, 2, 3], [2, 3, 4]));
+    }
 }
